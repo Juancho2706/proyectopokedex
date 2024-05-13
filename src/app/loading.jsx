@@ -13,7 +13,7 @@ function Loading() {
   }, []);
   if (cargando) {
     return (
-      <div className='z-30 absolute transition ease-in-out delay-700 bg-orange-200 w-screen h-screen flex items-center justify-center'>
+      <div className='z-30 fixed transition ease-in-out delay-700 bg-orange-200 w-full  h-full flex items-center justify-center'>
         <Image src='/icon.ico' width={200} height={200} alt="PokeIcon" className="motion-safe:animate-spin" />
       </div>
     );
