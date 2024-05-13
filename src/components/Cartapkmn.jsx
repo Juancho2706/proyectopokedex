@@ -8,7 +8,7 @@ async function Cartapkmn({ datospkmn }) {
         return (
           <div className="flex w-1/5  " key={datospkmn[key].id}>
             <div className="bg-slate-500  w-1/4 h-full overflow-hidden">
-              <Image className="min-w-48  transform -translate-x-1/4" width={800} height={800} src={datospkmn[key].sprites.other['official-artwork'].front_default}/>
+              <Image priority={true} className="min-w-48  transform -translate-x-1/4" width={800} height={800} src={datospkmn[key].sprites.other['official-artwork'].front_default}/>
             </div> 
             <div
               
