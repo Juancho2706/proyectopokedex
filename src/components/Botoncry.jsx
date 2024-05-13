@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useRef } from 'react';
 
+
+
 function Botoncry({ sonido }) {
   const audioRef = useRef();
 
