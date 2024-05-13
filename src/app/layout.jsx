@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Loading from "./loading";
 
@@ -12,7 +11,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Loading />
-        {/* <Navbar /> */}
         {children}
       </body>
     </html>

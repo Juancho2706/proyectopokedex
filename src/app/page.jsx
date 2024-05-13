@@ -1,3 +1,5 @@
+import ListaPkmn from "@/components/ListaPkmn";
+
 let objetoPokemon = {};
 let next = "";
 let previous = "";
@@ -16,7 +18,7 @@ export async function infodecadapokemon(datos) {
 //pokemons, en este caso los primeros 20, nos entrega solo nombre y
 //una URL de la API en el cual alli sacamos el resto de la info sobre el pokemon
 export async function pokemonsData() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50");
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=17");
   const data = await res.json();
   next = data.next;
   previous = data.previous;
@@ -28,16 +30,12 @@ export async function pokemonsData() {
 
 export default async function Home() {
   await pokemonsData();
-  console.log(objetoPokemon);
   return (
     <main className="BodyHome1 overflow-y-hidden overflow-x-hidden">
       <div className="HeaderHome1">
         <img src="/Header.png"></img>
       </div>
-      <div className="h-full lalinea scale-y-150 flex">
-        <div className="w-1/2"></div>
-        <div className="w-1/2"> AAAAA</div>
-      </div>
+      <ListaPkmn datospkmn={objetoPokemon} />
       <div className="FooterHome1">
         <img src="/Footer.png"></img>
       </div>
