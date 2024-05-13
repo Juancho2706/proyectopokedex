@@ -1,5 +1,6 @@
 // "use client";
 import Image from "next/image";
+import Botoncry from "./Botoncry";
 
 async function Cartapkmn({ datospkmn }) {
   return (
@@ -16,7 +17,7 @@ async function Cartapkmn({ datospkmn }) {
             >
               <h3>{datospkmn[key].name}</h3>
               <img src={datospkmn[key].sprites.versions['generation-v']['black-white'].animated.front_default} />
-            <button className="bg-slate-700 text-yellow-50 rounded-md p-3">Cry 1</button>
+              <Botoncry sonido={datospkmn[key].cries.latest} />
             </div>
             
           </div>
