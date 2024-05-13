@@ -1,3 +1,5 @@
+import Botonbefore from "@/components/Botonbefore";
+import Botonnext from "@/components/Botonnext";
 import Cartapkmn from "@/components/Cartapkmn";
 
 // Objeto vacio que se usara para mandar info de los pokemon hacia
@@ -23,6 +25,8 @@ async function infodecadapokemon(datos) {
 async function pokemonsData() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50");
   const data = await res.json();
+  next = data.next
+  previous = data.previous
 
   for (let index = 0; index < data.results.length; index++) {
     await infodecadapokemon(data.results[index]);
@@ -33,13 +37,9 @@ async function Pokemones() {
   await pokemonsData();
   return (
     <div className="flex items-center content">
-      <button className="flex-grow-1">
-        <img className="-scale-x-100" src="/arrow.png"></img>
-      </button>
+      <Botonbefore/>
       <Cartapkmn datospkmn={objetoPokemon} />
-      <button className="flex-grow-1">
-        <img src="/arrow.png"></img>
-      </button>
+      <Botonnext />
     </div>
   );
 }

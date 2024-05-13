@@ -7,7 +7,7 @@ const Botoncry = dynamic(() => import('./Botoncry'), { ssr: false });
 
 async function Cartapkmn({ datospkmn }) {
   return (
-    <div className="elover flex flex-row flex-wrap gap-1 justify-center flex-grow-2">
+    <div className="elover w-1/8 flex flex-row flex-wrap gap-1 justify-center flex-grow-2">
       {Object.keys(datospkmn).map((key) => {
         return (
           <div className="flex w-1/5  " key={datospkmn[key].id}>

@@ -7,6 +7,7 @@ body{
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100%;
   margin: 0;
 }
 
@@ -16,9 +17,15 @@ body{
 
 .content{
   height: 85%;
+
+  justify-content: space-between;
   /* overflow-y: auto; */
 }
 .elover{
   height: 85%;
+  width: 90%;
   overflow-y: auto;
+}
+.botonesiguientes{
+  width: 5%;
 }
