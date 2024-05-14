@@ -2,30 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-color: rgb(254, 215, 170) ;
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap');
+
+@keyframes moveBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -100% 0; }
+}
+
+body {
+  background-color: #f9f4f4;
+  background-image: url("/BGballs.png");
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100%;
   margin: 0;
+  animation: moveBackground 15s ease-in-out infinite;
+  background-repeat: repeat;
 }
 
-.navbar{
+.navbar {
   height: 15%;
 }
 
-.content{
+.content {
   height: 85%;
 
   justify-content: space-between;
   /* overflow-y: auto; */
 }
-.elover{
+.elover {
   height: 85%;
   width: 90%;
   overflow-y: auto;
 }
-.botonesiguientes{
+.botonesiguientes {
   width: 5%;
+}
+
+.BodyHome1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.HeaderHome1 {
+  height: 10%;
+  z-index: 2;
+  inline-size: max-content;
+}
+.FooterHome1 {
+  height: 10%;
+  align-content: end;
+  z-index: 2;
+  inline-size: max-content;
+}
+.Littlebody1 {
+  height: 80%;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.lalinea {
+  height: inherit;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    114deg,
+    rgba(255, 255, 255, 0) 46%,
+    rgba(239, 90, 63, 1) 46%,
+    rgba(239, 90, 63, 1) 51%,
+    rgba(249, 116, 72, 1) 51%,
+    rgba(249, 116, 72, 1) 100%
+  );
+}
+
+.Unidadpkmn {
+  background: (249, 116, 72, 1);
+  color: black;
+  transition: all 0.2s ease-in-out;
+  
+}
+
+.Unidadpkmn:hover {
+  background: rgb(239, 90, 63);
+  background: linear-gradient(
+    142deg,
+    rgba(239, 90, 63, 1) 46%,
+    rgba(0, 0, 0, 1) 46%
+  );
+  color: white;
+  box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.295);
+  opacity: 1;
 }
