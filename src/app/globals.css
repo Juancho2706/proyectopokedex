@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap');
+
+
 body {
   background-color: #f9f4f4;
   background-image: url("/BGballs.png");
@@ -58,6 +61,7 @@ body {
 }
 
 .lalinea {
+  height: inherit;
   background: rgb(255, 255, 255);
   background: linear-gradient(
     114deg,
