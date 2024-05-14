@@ -1,10 +1,5 @@
 "use client";
-import dynamic from "next/dynamic";
 import { useState } from "react";
-import FlechasArribaAbajo from "./FlechasArribaAbajo";
-
-//Llamo al componente pero de forma dinamica con Nextjs para solo ser usado en Client side
-const Botoncry = dynamic(() => import("./Botoncry"), { ssr: false });
 
 function ListaPkmn({ datospkmn }) {
   const [cambiodesprite, setcambiodesprite] = useState("");
@@ -21,9 +16,7 @@ function ListaPkmn({ datospkmn }) {
             return (
               <div
                 onMouseOver={() => {
-                  setcambiodesprite(
-                    datospkmn[key].sprites.other["showdown"].front_default
-                  );
+                  setcambiodesprite(datospkmn[key].sprites.front_default);
                 }}
                 className="Unidadpkmn group  flex justify-between text-white rounded-full w-4/5 h-3/4"
                 key={datospkmn[key].id}
@@ -46,7 +39,6 @@ function ListaPkmn({ datospkmn }) {
             );
           })}
         </div>
-        {/* <FlechasArribaAbajo /> */}
       </div>
     </div>
   );

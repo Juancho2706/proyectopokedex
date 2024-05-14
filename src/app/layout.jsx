@@ -1,5 +1,5 @@
 import "./globals.css";
-import Loading from "./loading";
+// import Loading from "./loading";
 
 export const metadata = {
   title: "PokeDex NextJS",
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
       className="font-catamaran font-bold text-opacity-90 tracking-normal"
     >
       <body>
-          <Loading />
+          {/* <Loading /> */}
           {children}
       </body>
     </html>

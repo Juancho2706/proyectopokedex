@@ -8,7 +8,7 @@ function Loading() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCargando(false);
-    }, 500);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
   if (cargando) {
