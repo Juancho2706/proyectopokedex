@@ -1,12 +1,17 @@
 "use client";
 import { useState } from "react";
+import Nombrepkmn from "./Nombrepkmn";
 
 function ListaPkmn({ datospkmn }) {
   const [cambiodesprite, setcambiodesprite] = useState("");
+  const [cambioID, setcambioID] = useState("");
+  const [cambioNombre, setcambioNombre] = useState("");
+  const [mostrar, setmostrar] = useState(false);
   return (
     <div className="h-full flex w-full">
       <div className="w-1/2 flex items-center justify-center flex-col">
-        <img className="h-1/4" src={cambiodesprite ? cambiodesprite : ""} />
+        {mostrar && <Nombrepkmn id={cambioID} nombre={cambioNombre} />}
+        <img className="h-1/3" src={cambiodesprite ? cambiodesprite : ""} />
       </div>
       <div className="w-1/2 h-4/5 relative flex justify-center items-end">
         <div className="flex w-4/5 justify-center flex-col  items-center">
@@ -15,8 +20,13 @@ function ListaPkmn({ datospkmn }) {
           {Object.keys(datospkmn).map((key) => {
             return (
               <div
+                onClick={() => {
+                  setmostrar(!mostrar);
+                }}
                 onMouseOver={() => {
                   setcambiodesprite(datospkmn[key].sprites.front_default);
+                  setcambioID(datospkmn[key].id);
+                  setcambioNombre(datospkmn[key].name);
                 }}
                 className="Unidadpkmn group  flex justify-between text-white rounded-full w-4/5 h-3/4"
                 key={datospkmn[key].id}
