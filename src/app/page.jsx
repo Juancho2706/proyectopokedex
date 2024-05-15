@@ -3,7 +3,7 @@ import ListaPkmn from "@/components/ListaPkmn";
 import { useState, useEffect } from "react";
 
 // La funcion infodecadapokemon seria una funcion segundaria que gracias a la
-// URL de la API nos lleva directo a la informacion completa del pokemon
+// URL de la API nos lleva directo a la informacion completa del pokemoan
 // que luego usaremos en los componentes
 
 // //La principal funcion es pokemonsData, de aca agarramos info de varios
