@@ -1,50 +1,23 @@
 "use client";
 import ListaPkmn from "@/components/ListaPkmn";
 import { useState, useEffect } from "react";
+import { pokemonsData } from "../components/Lasfunciones";
 
-// La funcion infodecadapokemon seria una funcion segundaria que gracias a la
-// URL de la API nos lleva directo a la informacion completa del pokemoan
-// que luego usaremos en los componentes
 
-// //La principal funcion es pokemonsData, de aca agarramos info de varios
-// //pokemons, en este caso los primeros 20, nos entrega solo nombre y
-// //una URL de la API en el cual alli sacamos el resto de la info sobre el pokemon
-
-export default async function Home() {
+export default function Home() {
   const [objetoPokemon, setObjetoPokemon] = useState({});
-  const [next, setNext] = useState("");
+  const [proximo, setNext] = useState("");
   const [previous, setPrevious] = useState("");
-
-  const pokemonsData = async (undato) => {
-    const res = await fetch(
-      `${
-        undato
-          ? undato
-          : "https://pokeapi.co/api/v2/pokemon?offset=200&limit=17"
-      }`
-    );
-
-    const data = await res.json();
-    setNext(data.next);
-    setPrevious(data.previous);
-    setObjetoPokemon({});
-    await infodecadapokemon(data);
-  };
-
-  const infodecadapokemon = async (data) => {
-    const temporal = {};
-    for (let index = 0; index < data.results.length; index++) {
-      const resInfo = await fetch(`${data.results[index].url}`);
-      const dataInfo = await resInfo.json();
-      if (!temporal[dataInfo.id]) {
-        temporal[dataInfo.id] = dataInfo;
-      }
-    }
-    setObjetoPokemon(temporal);
-  };
+  const [cargando,setcargando] = useState(false)
 
   useEffect(() => {
-    pokemonsData();
+    async function fetchData() {
+      const [dato1, dato2, dato3] = await pokemonsData();
+      setObjetoPokemon(dato1);
+      setNext(dato2);
+      setPrevious(dato3);
+    }
+    fetchData();
   }, []);
 
   return (
@@ -53,18 +26,28 @@ export default async function Home() {
         <img src="/Header.png"></img>
       </div>
       <div className="flex  lalinea scale-y-150">
-        <ListaPkmn datospkmn={objetoPokemon} />
+        {cargando ? <ListaPkmn esload={cargando} /> : <ListaPkmn datospkmn={objetoPokemon} esload={cargando} />}
         <div className="w-8 flex flex-col relative gap-5 self-center right-16">
           <button
-            onClick={() => {
-              pokemonsData(previous);
+            onClick={async () => {
+              setcargando(true)
+              const [dato1, dato2, dato3] = await pokemonsData(previous);
+              setObjetoPokemon(dato1);
+              setNext(dato2);
+              setPrevious(dato3);
+              setcargando(false)
             }}
           >
             <img src="/Top.png"></img>
           </button>
           <button
-            onClick={() => {
-              pokemonsData(next);
+            onClick={async () => {
+              setcargando(true)
+              const [dato1, dato2, dato3] = await pokemonsData(proximo);
+              setObjetoPokemon(dato1);
+              setNext(dato2);
+              setPrevious(dato3);
+              setcargando(false)
             }}
           >
             <img src="/Top.png"></img>

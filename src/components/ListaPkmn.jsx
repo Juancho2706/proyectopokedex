@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import Nombrepkmn from "./Nombrepkmn";
+import Cargalenta from "./Cargalenta";
 
-function ListaPkmn({ datospkmn }) {
+function ListaPkmn({ datospkmn, esload }) {
   const [cambiodesprite, setcambiodesprite] = useState("");
   const [cambioID, setcambioID] = useState("");
   const [cambioNombre, setcambioNombre] = useState("");
@@ -14,9 +15,10 @@ function ListaPkmn({ datospkmn }) {
         <img className="h-1/3" src={cambiodesprite ? cambiodesprite : ""} />
       </div>
       <div className="w-1/2 h-4/5 relative flex justify-center items-end">
-        <div className="flex w-4/5 justify-center flex-col  items-center">
-          <div>Barra de busqueda</div>
-
+        <div className="heighinherit flex w-4/5 justify-center flex-col  items-center">
+          {esload ? <Cargalenta/> :
+          <><div>Barra de busqueda</div>
+ 
           {Object.keys(datospkmn).map((key) => {
             return (
               <div
@@ -33,6 +35,8 @@ function ListaPkmn({ datospkmn }) {
               >
                 <div className="flex w-2/5 justify-center gap-2">
                   <img
+                  loading="eager"
+                  
                     className="h-6 grayscale opacity-70 group-hover:grayscale-0  group-hover:opacity-100"
                     src={datospkmn[key].sprites.front_default}
                   />
@@ -47,7 +51,7 @@ function ListaPkmn({ datospkmn }) {
                 </div>
               </div>
             );
-          })}
+          })}</>}
         </div>
       </div>
     </div>

@@ -66,6 +66,10 @@ body {
   justify-content: space-between;
 }
 
+.heighinherit{
+  height: inherit;
+}
+
 .lalinea {
   height: inherit;
   background: rgb(255, 255, 255);
