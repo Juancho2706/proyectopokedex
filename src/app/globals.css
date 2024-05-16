@@ -72,6 +72,12 @@ body {
   height: inherit;
 }
 
+.todonegro{
+  background-color: #333333;
+  color: white;
+}
+
+
 .lalinea {
   height: inherit;
   background: rgb(255, 255, 255);
