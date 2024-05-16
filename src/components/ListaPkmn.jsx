@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Nombrepkmn from "./Nombrepkmn";
 import Cargalenta from "./Cargalenta";
+import { primeraLetraMayus } from "./Lasfunciones";
 
 function ListaPkmn({ datospkmn, esload }) {
   const [cambiodesprite, setcambiodesprite] = useState("");
@@ -43,7 +44,7 @@ function ListaPkmn({ datospkmn, esload }) {
                   <p>No. {datospkmn[key].id}</p>
                 </div>
                 <div className="flex w-1/2 justify-between px-2">
-                  <p>{datospkmn[key].name}</p>
+                  <p>{primeraLetraMayus(datospkmn[key].name)}</p>
                   <img
                     className="self-center h-3 w-3 opacity-0 group-hover:opacity-100"
                     src="/Pkeballicon.svg"

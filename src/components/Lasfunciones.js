@@ -21,3 +21,7 @@ export async function pokemonsData(undato) {
   console.log("ACA");
   return [objetoPokemon, proximo, previous];
 }
+
+export function primeraLetraMayus(str){
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
