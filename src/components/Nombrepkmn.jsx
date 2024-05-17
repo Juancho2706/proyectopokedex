@@ -1,6 +1,6 @@
-function Nombrepkmn({id, nombre}) {
+function Nombrepkmn({id, nombre, mostrar}) {
   return (
-    <div>No. {id} {nombre}</div>
+    <div className={mostrar ? "opacity-100" : "opacity-0"} >No. {id} {nombre}</div>
   )
 }
 
