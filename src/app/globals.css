@@ -49,12 +49,17 @@ body {
   height: 100%;
 }
 .HeaderHome1 {
+  width: 100vh;
   height: 10%;
   z-index: 2;
   inline-size: max-content;
+  position: fixed;
 }
 .FooterHome1 {
+ position: fixed;
+ transform: translateY(900%);
   height: 10%;
+  width: 100vh;
   align-content: end;
   z-index: 2;
   inline-size: max-content;
@@ -66,6 +71,13 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.botonfixeado{
+  transform: translate(10px,78vh);
+}
+.botonbackfixeado{
+  transform: translate(10px,18vh);
+
 }
 
 .heighinherit{

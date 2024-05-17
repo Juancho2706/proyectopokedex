@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className="font-catamaran font-bold text-opacity-90 tracking-normal"
+      className="font-catamaran font-bold lead text-opacity-90 tracking-normal"
     >
       <body>{children}</body>
     </html>

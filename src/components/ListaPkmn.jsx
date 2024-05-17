@@ -5,22 +5,35 @@ import Cargalenta from "./Cargalenta";
 import { primeraLetraMayus } from "./Lasfunciones";
 import Infopokemon from "./Infopokemon";
 
-function ListaPkmn({ datospkmn, esload, cambio, setCambio }) {
-  const [cambiodesprite, setcambiodesprite] = useState("");
+function ListaPkmn({
+  datospkmn,
+  esload,
+  cambio,
+  setCambio,
+  mostrar,
+  setmostrar,
+  cambiodesprite, setcambiodesprite
+}) {
+  
   const [cambioID, setcambioID] = useState("");
   const [cambioNombre, setcambioNombre] = useState("");
-  const [mostrar, setmostrar] = useState(false);
+
   return (
     <div className="h-full flex w-full items-center justify-around">
       <div className="w-1/2 flex items-center justify-center flex-col">
         <Nombrepkmn id={cambioID} nombre={cambioNombre} mostrar={mostrar} />
-        <img className="h-1/3" src={cambiodesprite ? cambiodesprite : ""} />
+        <img
+          className="h-1/3"
+          loading="lazy"
+          
+          src={cambiodesprite ? cambiodesprite : ""}
+        />
       </div>
       {cambio ? (
-        <Infopokemon nombre={cambioNombre}/>
+        <Infopokemon nombre={cambioNombre} />
       ) : (
-        <div className="w-1/2 h-1/4 flex justify-center items-center">
-          <div className="heighinherit flex w-4/5 justify-center flex-col  items-center">
+        <div className="w-1/2 h-[80vh] flex justify-center items-center">
+          <div className="heighinherit gap-2 flex w-4/5 justify-center flex-col  items-center">
             {esload ? (
               <Cargalenta />
             ) : (
@@ -35,11 +48,14 @@ function ListaPkmn({ datospkmn, esload, cambio, setCambio }) {
                         setCambio(true);
                       }}
                       onMouseOver={() => {
-                        setcambiodesprite(datospkmn[key].sprites.front_default);
+                        setcambiodesprite(
+                          datospkmn[key].sprites.other["official-artwork"]
+                            .front_default
+                        );
                         setcambioID(datospkmn[key].id);
                         setcambioNombre(datospkmn[key].name);
                       }}
-                      className="Unidadpkmn group  flex justify-between text-white rounded-full w-4/5 h-3/4"
+                      className="Unidadpkmn group items-center h-[30px] flex justify-between text-white rounded-full w-4/5 "
                       key={datospkmn[key].id}
                     >
                       <div className="flex w-2/5 justify-center gap-2">
