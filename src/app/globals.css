@@ -49,12 +49,17 @@ body {
   height: 100%;
 }
 .HeaderHome1 {
+  width: 100vh;
   height: 10%;
   z-index: 2;
   inline-size: max-content;
+  position: fixed;
 }
 .FooterHome1 {
+ position: fixed;
+ transform: translateY(900%);
   height: 10%;
+  width: 100vh;
   align-content: end;
   z-index: 2;
   inline-size: max-content;
@@ -67,6 +72,13 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+.botonfixeado{
+  transform: translate(10px,78vh);
+}
+.botonbackfixeado{
+  transform: translate(10px,18vh);
+
+}
 
 .heighinherit{
   height: inherit;
@@ -76,9 +88,9 @@ body {
   background-color: #333333;
   color: white;
 }
-
-
-.lalinea {
+ @media only screen and (min-width: 1366px) {
+  /* styles for browsers larger than 960px; */
+  .lalinea {
   height: inherit;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -89,8 +101,18 @@ body {
     rgba(249, 116, 72, 1) 51%,
     rgba(249, 116, 72, 1) 100%
   );
+  .eldisplay{
+    display: flex;
+  }
 }
+ }
 
+.lalinea{
+  height: inherit;
+}
+.eldisplay{
+  display: none;
+}
 .Unidadpkmn {
   background: (249, 116, 72, 1);
   color: black;

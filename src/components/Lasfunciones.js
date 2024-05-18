@@ -10,15 +10,19 @@ export async function pokemonsData(undato) {
   const previous = data.previous;
 
   const objetoPokemon = {};
+  const imagenesPokemon = [];
 
   for (let index = 0; index < data.results.length; index++) {
     const res2 = await fetch(data.results[index].url);
     const data2 = await res2.json();
     if (!objetoPokemon[data2.id]) {
       objetoPokemon[data2.id] = data2;
+      const img = new Image();
+      const imgmini = new Image();
+      img.src = data2.sprites.other["official-artwork"].front_default;
+      imgmini.src = data2.sprites.front_default;
     }
   }
-  console.log("ACA");
   return [objetoPokemon, proximo, previous];
 }
 
@@ -27,7 +31,6 @@ export function primeraLetraMayus(str) {
 }
 
 export async function habitatpkmn(url) {
-  console.log("habitat url:" + url);
   let res = await fetch(url);
   let data = await res.json();
 
@@ -84,8 +87,6 @@ export async function habilidadespasivas(url) {
       break;
     }
   }
-  console.log(pasiva);
-  console.log(despasiva);
   return [pasiva, despasiva];
 }
 
@@ -122,9 +123,8 @@ export async function pokeINFO(nombre) {
   );
   const habitatFINAL = await habitatpkmn(habitat);
   const descFINAL = await descpkmn(habitat);
- console.log("vidaFUNCION"+hp)
-  return (
-    [hp,
+  return [
+    hp,
     att,
     def,
     satt,
@@ -136,6 +136,6 @@ export async function pokeINFO(nombre) {
     pasivaFINAL,
     despasivaFINAL,
     habitatFINAL,
-    descFINAL]
-  );
+    descFINAL,
+  ];
 }

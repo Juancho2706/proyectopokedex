@@ -3,6 +3,7 @@ import ListaPkmn from "@/components/ListaPkmn";
 import { useState, useEffect } from "react";
 import { pokemonsData } from "../components/Lasfunciones";
 import FlechasArribaAbajo from "@/components/FlechasArribaAbajo";
+import BotonBack from "@/components/BotonBack";
 
 export default function Home() {
   const [objetoPokemon, setObjetoPokemon] = useState({});
@@ -10,6 +11,8 @@ export default function Home() {
   const [previous, setPrevious] = useState("");
   const [cargando, setcargando] = useState(false);
   const [cambio, setCambio] = useState(false);
+  const [mostrar, setmostrar] = useState(false);
+  const [cambiodesprite, setcambiodesprite] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -26,20 +29,26 @@ export default function Home() {
       <div className="HeaderHome1">
         <img src="/Header.png"></img>
       </div>
-      <div className="flex  lalinea scale-y-150">
-        {console.log(cambio)}
+      <div className="flex  lalinea ">
+
         {cargando ? (
           <ListaPkmn esload={cargando} />
         ) : (
           <ListaPkmn
+          cambiodesprite={cambiodesprite}
+          setcambiodesprite={setcambiodesprite}
             datospkmn={objetoPokemon}
             esload={cargando}
             cambio={cambio}
             setCambio={setCambio}
+            mostrar={mostrar}
+            setmostrar={setmostrar}
           />
         )}
         {cambio ? (
-          <></>
+          <>
+            <BotonBack setCambio={setCambio} setmostrar={setmostrar} />
+          </>
         ) : (
           <FlechasArribaAbajo
             previous={previous}
@@ -48,6 +57,7 @@ export default function Home() {
             setPrevious={setPrevious}
             setObjetoPokemon={setObjetoPokemon}
             setcargando={setcargando}
+            setcambiodesprite={setcambiodesprite}
           />
         )}
       </div>

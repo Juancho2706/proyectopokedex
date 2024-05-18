@@ -8,7 +8,7 @@ function Cargalenta() {
         width={200}
         height={200}
         alt="PokeIcon"
-        className="motion-safe:animate-spin"
+        className="motion-safe:animate-pulse"
       />
     </div>
   );
