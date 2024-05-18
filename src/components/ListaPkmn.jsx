@@ -20,7 +20,7 @@ function ListaPkmn({
 
   return (
     <div className="h-full flex w-full items-center justify-around">
-      <div className="w-1/2 flex items-center justify-center flex-col">
+      <div className="w-1/2 flex eldisplay items-center justify-center flex-col" >
         <Nombrepkmn id={cambioID} nombre={cambioNombre} mostrar={mostrar} />
         <img
           className="h-1/3"

@@ -88,9 +88,9 @@ body {
   background-color: #333333;
   color: white;
 }
-
-
-.lalinea {
+ @media only screen and (min-width: 1366px) {
+  /* styles for browsers larger than 960px; */
+  .lalinea {
   height: inherit;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -101,8 +101,18 @@ body {
     rgba(249, 116, 72, 1) 51%,
     rgba(249, 116, 72, 1) 100%
   );
+  .eldisplay{
+    display: flex;
+  }
 }
+ }
 
+.lalinea{
+  height: inherit;
+}
+.eldisplay{
+  display: none;
+}
 .Unidadpkmn {
   background: (249, 116, 72, 1);
   color: black;

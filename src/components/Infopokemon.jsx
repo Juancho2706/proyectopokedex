@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { pokeINFO } from "./Lasfunciones";
+import { pokeINFO,primeraLetraMayus } from "./Lasfunciones";
 
 
 function Infopokemon({ nombre }) {
@@ -71,7 +71,7 @@ function Infopokemon({ nombre }) {
           <p className="todonegro rounded-full ">Altura {Altura}</p>
           <p className="todonegro rounded-full">Peso {Peso}</p>
         </div>
-        <p className="todonegro rounded-full text-center">Habitat {Habitat}</p>
+        <p className="todonegro rounded-full text-center">Habitat {primeraLetraMayus(Habitat)}</p>
         <div>
           <p className="todonegro p-6 rounded-md">
             {Pasiva}

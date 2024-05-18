@@ -29,7 +29,7 @@ export default function Home() {
       <div className="HeaderHome1">
         <img src="/Header.png"></img>
       </div>
-      <div className="flex  lalinea">
+      <div className="flex  lalinea ">
 
         {cargando ? (
           <ListaPkmn esload={cargando} />
