@@ -85,6 +85,7 @@ body {
 
 .heighinherit {
   height: inherit;
+  gap: 0;
 }
 
 .todonegro {
@@ -157,6 +158,9 @@ body {
     .size-6{
       width: 1.5rem;
       height: 1.5rem;
+    }
+    .heighinherit{
+      gap: 0;
     }
   }
 }
