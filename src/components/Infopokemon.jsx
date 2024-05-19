@@ -67,12 +67,12 @@ function Infopokemon({ nombre }) {
         <div>
           <p className="todonegro p-6 rounded-md">{Desc}</p>
         </div>
-        <div className="grid grid-cols-2 gap-2 text-center">
+        <div className="estono grid grid-cols-2 gap-2 text-center">
           <p className="todonegro rounded-full ">Altura {Altura}</p>
           <p className="todonegro rounded-full">Peso {Peso}</p>
         </div>
-        <p className="todonegro rounded-full text-center">Habitat {primeraLetraMayus(Habitat)}</p>
-        <div>
+        <p className="estono todonegro rounded-full text-center">Habitat {primeraLetraMayus(Habitat)}</p>
+        <div className="estono">
           <p className="todonegro p-6 rounded-md">
             {Pasiva}
             <br />

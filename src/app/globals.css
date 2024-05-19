@@ -93,7 +93,7 @@ body {
   color: white;
 }
 
-@media only screen and (max-width: 425px) and (max-height: 1020px) {
+@media only screen and (max-width: 880px) and (max-height: 1020px) {
   .lalinea> div > div:nth-of-type(2) {
     width: 100%;
     /* Tus estilos aquí */
@@ -106,13 +106,25 @@ body {
   .lalinea div .infopkmn{
     padding-left: 3rem;
     padding-right: 3rem;
+    font-size: x-large;
+    height: 30%;
   }
   .eldisplayON img{
     height: auto;
   }
-  /* .heighinherit{
+  .infopkmn .estono{
+    display: none;
+  }
+  .eldisplayON{
+    width: auto;
+  }
+  .heighinherit{
     gap: 1.5rem;
-  } */
+  }
+  .FooterHome1 {
+    position: inherit;
+    transform: none;
+  }
 }
 
 @media only screen and (min-width: 1366px) and (min-height: 768px) {
