@@ -110,9 +110,9 @@ body {
   .eldisplayON img{
     height: auto;
   }
-  .heighinherit{
+  /* .heighinherit{
     gap: 1.5rem;
-  }
+  } */
 }
 
 @media only screen and (min-width: 1366px) and (min-height: 768px) {
