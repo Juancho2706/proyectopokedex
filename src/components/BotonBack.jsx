@@ -1,7 +1,7 @@
 function BotonBack({ setCambio, setmostrar }) {
   return (
     <button
-      className="fixed botonbackfixeado flex flex-col  gap-5  right-16"
+      className="botonBACK fixed botonbackfixeado flex flex-col  gap-5  right-16"
       onClick={() => {
         setCambio(false);
         setmostrar(false);

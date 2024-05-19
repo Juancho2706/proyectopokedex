@@ -16,7 +16,20 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const [dato1, dato2, dato3] = await pokemonsData();
+      let tamanoventana = ''
+      if(window.innerWidth < 426){
+        tamanoventana = 'https://pokeapi.co/api/v2/pokemon?offset=200&limit=9'
+      }
+      else if((window.innerWidth < 768) && (window.innerHeight < 1024)){
+        tamanoventana = 'https://pokeapi.co/api/v2/pokemon?offset=200&limit=17'
+      }
+      else if(window.innerWidth < 1366  && (window.innerHeight < 768)){
+        tamanoventana = 'https://pokeapi.co/api/v2/pokemon?offset=200&limit=11'
+      }else{
+        tamanoventana = null
+      }
+
+      const [dato1, dato2, dato3] = await pokemonsData(tamanoventana);
       setObjetoPokemon(dato1);
       setNext(dato2);
       setPrevious(dato3);
@@ -29,7 +42,7 @@ export default function Home() {
       <div className="HeaderHome1">
         <img src="/Header.png"></img>
       </div>
-      <div className="flex  lalinea ">
+      <div className={`flex  lalinea ${mostrar ? 'lalinea2' : ''}`}>
 
         {cargando ? (
           <ListaPkmn esload={cargando} />
@@ -47,7 +60,7 @@ export default function Home() {
         )}
         {cambio ? (
           <>
-            <BotonBack setCambio={setCambio} setmostrar={setmostrar} />
+            <BotonBack setCambio={setCambio} setmostrar={setmostrar}/>
           </>
         ) : (
           <FlechasArribaAbajo

@@ -17,7 +17,7 @@ function FlechasArribaAbajo({previous,proximo,setcargando,setNext,setObjetoPokem
               
             }}
           >
-            <img className="size-6" src="/Top.png"></img>
+            <img className="size-6 laptopmode" src="/Top.png"></img>
           </button>
           <button
             
@@ -32,7 +32,7 @@ function FlechasArribaAbajo({previous,proximo,setcargando,setNext,setObjetoPokem
               
             }}
           >
-            <img className="size-6 rotate-180" src="/Top.png"></img>
+            <img className="size-6 rotate-180 laptopmode" src="/Top.png"></img>
           </button>
         </div>
   );

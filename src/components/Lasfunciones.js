@@ -1,4 +1,5 @@
 export async function pokemonsData(undato) {
+
   const res = await fetch(
     `${
       undato ? undato : "https://pokeapi.co/api/v2/pokemon?offset=400&limit=17"

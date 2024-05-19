@@ -55,7 +55,7 @@ function Infopokemon({ nombre }) {
 
   return (
     <>
-      <div className="w-1/2 h-1/2 px-48 flex flex-col gap-2">
+      <div className="infopkmn">
         <div className="grid grid-cols-2 gap-2 text-center">
           <p className="todonegro rounded-full">HP {hp}</p>
           <p className="todonegro rounded-full">S.ATT {satt}</p>
