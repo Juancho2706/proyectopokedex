@@ -27,7 +27,7 @@ function ListaPkmn({
       >
         <Nombrepkmn id={cambioID} nombre={cambioNombre} mostrar={mostrar} />
         <img
-          className={`h-1/3 ${mostrar ? "opacity-100" : "opacity-0"} `}
+          className={`h-1/3 ${mostrar ? "opacity-100" : ''} `}
           loading="lazy"
           src={cambiodesprite ? cambiodesprite : ""}
         />

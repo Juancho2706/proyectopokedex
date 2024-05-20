@@ -27,6 +27,13 @@ export async function pokemonsData(undato) {
   return [objetoPokemon, proximo, previous];
 }
 
+export async function pokesearchgen(numero){
+  const res = await fetch(`https://pokeapi.co/api/v2/generation/${+numero}`)
+  const data = await res.json()
+  console.log(data)
+
+}
+
 export function primeraLetraMayus(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
