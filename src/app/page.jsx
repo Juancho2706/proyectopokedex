@@ -1,9 +1,10 @@
 "use client";
 import ListaPkmn from "@/components/ListaPkmn";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { pokemonsData } from "../components/Lasfunciones";
 import FlechasArribaAbajo from "@/components/FlechasArribaAbajo";
 import BotonBack from "@/components/BotonBack";
+import Cargalenta from "@/components/Cargalenta";
 
 export default function Home() {
   const [objetoPokemon, setObjetoPokemon] = useState({});
@@ -43,7 +44,7 @@ export default function Home() {
         <img src="/Header.png"></img>
       </div>
       <div className={`flex  lalinea ${mostrar ? 'lalinea2' : ''}`}>
-
+ <Suspense fallback={<Cargalenta/>}>
         {cargando ? (
           <ListaPkmn esload={cargando} />
         ) : (
@@ -72,7 +73,7 @@ export default function Home() {
             setcargando={setcargando}
             setcambiodesprite={setcambiodesprite}
           />
-        )}
+        )}</Suspense>
       </div>
       <div className="FooterHome1">
         <img src="/Footer.png"></img>

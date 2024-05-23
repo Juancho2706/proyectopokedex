@@ -1,9 +1,11 @@
 "use client";
-import { useState } from "react";
+import React from "react";
+import { Suspense, useState } from "react";
 import Nombrepkmn from "./Nombrepkmn";
 import Cargalenta from "./Cargalenta";
 import { primeraLetraMayus } from "./Lasfunciones";
-import Infopokemon from "./Infopokemon";
+// import Infopokemon from "./Infopokemon";
+const Infopokemon = React.lazy(()=> import('./Infopokemon'))
 
 function ListaPkmn({
   datospkmn,
@@ -33,7 +35,7 @@ function ListaPkmn({
         />
       </div>
       {cambio ? (
-        <Infopokemon nombre={cambioNombre} />
+        <Suspense fallback={<Cargalenta/>}><Infopokemon nombre={cambioNombre} /></Suspense>
       ) : (
         <div className="w-1/2 h-[80vh]  flex justify-center items-center">
           <div className="heighinherit gap-2 flex w-4/5 justify-center flex-col  items-center">
@@ -67,7 +69,10 @@ function ListaPkmn({
                           className="iconito grayscale opacity-70 group-hover:grayscale-0  group-hover:opacity-100"
                           src={datospkmn[key].sprites.front_default}
                         />
-                        <p className="content-center"> No. {datospkmn[key].id}</p>
+                        <p className="content-center">
+                          {" "}
+                          No. {datospkmn[key].id}
+                        </p>
                       </div>
                       <div className="flex w-1/2 justify-between px-2 items-center">
                         <p>{primeraLetraMayus(datospkmn[key].name)}</p>

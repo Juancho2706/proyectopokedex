@@ -1,7 +1,8 @@
 "use client";
+import React from "react";
 import { useEffect, useState } from "react";
-import { pokeINFO,primeraLetraMayus } from "./Lasfunciones";
-
+import { pokeINFO, primeraLetraMayus } from "./Lasfunciones";
+import Cargalenta from "./Cargalenta";
 
 function Infopokemon({ nombre }) {
   const [hp, setHP] = useState("");
@@ -53,6 +54,30 @@ function Infopokemon({ nombre }) {
     fetchData();
   }, []);
 
+  if (
+    !hp ||
+    !att ||
+    !def ||
+    !satt ||
+    !sdef ||
+    !spd ||
+    !Altura ||
+    !Peso ||
+    !Tipo ||
+    !Pasiva ||
+    !Despasiva ||
+    !Habitat ||
+    !Desc
+  ) {
+    return (
+      <div className="infopkmn">
+        <div className="flex self-center text-center items-center object-center">
+          <Cargalenta />
+        </div>
+      </div>
+    ); // Puedes mostrar un componente de carga aquí
+  }
+
   return (
     <>
       <div className="infopkmn">
@@ -71,7 +96,9 @@ function Infopokemon({ nombre }) {
           <p className="todonegro rounded-full ">Altura {Altura}</p>
           <p className="todonegro rounded-full">Peso {Peso}</p>
         </div>
-        <p className="estono todonegro rounded-full text-center">Habitat {primeraLetraMayus(Habitat)}</p>
+        <p className="estono todonegro rounded-full text-center">
+          Habitat {primeraLetraMayus(Habitat)}
+        </p>
         <div className="estono">
           <p className="todonegro p-6 rounded-md">
             {Pasiva}
@@ -80,7 +107,6 @@ function Infopokemon({ nombre }) {
           </p>
         </div>
       </div>
-      
     </>
   );
 }
